@@ -2,7 +2,7 @@
 
 # 🎮 Cyberpunk 2077 Mod Manager
 
-<img src="https://img.shields.io/badge/version-1.0.0-00f0ff?style=for-the-badge" alt="Version">
+<img src="https://img.shields.io/badge/version-0.5.0-00f0ff?style=for-the-badge" alt="Version">
 <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=for-the-badge&logo=windows" alt="Platform">
 <img src="https://img.shields.io/badge/Electron-28.0.0-47848F?style=for-the-badge&logo=electron" alt="Electron">
 <img src="https://img.shields.io/badge/license-MIT-00ff41?style=for-the-badge" alt="License">
