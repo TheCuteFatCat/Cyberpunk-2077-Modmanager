@@ -11,6 +11,8 @@
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Screenshots](#-screenshots) • [Contributing](#-contributing)
 
+![Main Interface](screenshots/main.png)
+
 ---
 
 </div>
