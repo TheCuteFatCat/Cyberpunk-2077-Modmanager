@@ -157,20 +157,78 @@ YourMod/
 
 ### modinfo.ini Format
 
+The `modinfo.ini` file defines your mod's metadata and installation codes. Create it manually or use the **modinfo.ini Maker** tool for a streamlined workflow.
+
+#### 🛠️ Using the modinfo.ini Maker (Recommended)
+
+For easier creation and editing of modinfo.ini files, use the dedicated **modinfo.ini Maker** tool:
+
+**[Download modinfo.ini Maker](LINK_TO_GITHUB_RELEASE_HERE)** *(Coming Soon)*
+
+**Features:**
+- Visual form-based interface with live preview
+- Automatic formatting and validation
+- Support for multiple authors and requirements
+- Code syntax assistance
+- Load and edit existing modinfo.ini files
+- Auto-save mod folder location for quick exports
+
+---
+
+#### 📝 Manual Format Reference
 ```ini
 name=My Awesome Mod
 version=1.5.0
 author=YourName
 author2=Contributor           # Optional second author
-authorlink=https://nexusmods.com/users/123
-authorlink2=https://nexusmods.com/users/456
+authorlink=https://next.nexusmods.com/profile/YourName
+authorlink2=https://next.nexusmods.com/profile/Contributor
 description=This mod does amazing things!
 category=Weapons
 modlink=https://nexusmods.com/cyberpunk2077/mods/123
 addonfor=Main Mod Name        # If this is an add-on
-requirements=Required Mod 1, Required Mod 2
-codes=Game.AddToInventory("Items.Weapon_Example",1)
+requirements=Required Mod 1, Required Mod 2, Required Mod 3
+screenshot=screen.png          # Optional, defaults to screen.png
+codes=Game.AddToInventory("Items.Weapon_Example",1)Game.AddToInventory("Items.Weapon_Example2",1)
 ```
+
+**Field Descriptions:**
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | ✅ Yes | Display name of your mod |
+| `version` | ⚠️ Recommended | Version number (e.g., 1.0.0) |
+| `author` | ✅ Yes | Primary author's Nexus Mods username |
+| `author2` | ❌ Optional | Secondary contributor's username |
+| `authorlink` | ✅ Yes | Nexus profile URL for primary author |
+| `authorlink2` | ❌ Optional | Nexus profile URL for second author |
+| `description` | ⚠️ Recommended | Brief description of mod contents |
+| `category` | ✅ Yes | Mod category (see categories below) |
+| `modlink` | ✅ Yes | Full Nexus Mods page URL |
+| `addonfor` | ❌ Optional | Parent mod name if this is an add-on |
+| `requirements` | ❌ Optional | Comma-separated list of required mods |
+| `screenshot` | ❌ Optional | Screenshot filename (defaults to `screen.png`) |
+| `codes` | ❌ Optional | CET console commands for item spawning |
+
+**Valid Categories:**
+- `Appearance`
+- `Armour and Clothing`
+- `Characters`
+- `Gameplay`
+- `Miscellaneous`
+- `Modders Resources`
+- `User Interface`
+- `Utilities`
+- `Vehicles`
+- `Visuals and Graphics`
+- `Weapons`
+- `Framework`
+
+**Notes:**
+- Codes must be written without semicolons and can directly follow each other
+- Each code should be a complete `Game.AddToInventory()` command
+- Multiple requirements should be comma-separated
+- Use exact Nexus Mods usernames for proper profile linking
 
 ### Supported Fields
 - `name` - Display name of the mod
