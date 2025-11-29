@@ -174,7 +174,7 @@ The `modinfo.ini` file defines your mod's metadata and installation codes. Creat
 
 <div align="center">
 
-[![Community modinfo.ini Collection](https://img.shields.io/badge/Community-modinfo.ini%20Collection-00f0ff?style=for-the-badge)](https://pastebin.com/YOUR_PASTEBIN_LINK_HERE)
+[![Community modinfo.ini Collection](https://img.shields.io/badge/Community-modinfo.ini%20Collection-00f0ff?style=for-the-badge)](https://justpaste.it/mawx0)
 
 *Community-created modinfo.ini files for popular mods - Copy and paste into your mod folders*
 
