@@ -289,8 +289,8 @@ This file contains:
 
 ## 🐛 Troubleshooting
 
-### Mods not detected
-- Ensure mods have a `modinfo.ini` file
+### Mods not recognized correctly
+- Make sure the mods have a "modinfo.ini" file, otherwise they may not be displayed correctly.
 - Check that the mod source path is set correctly
 - Click "Scan Mods" to refresh
 
@@ -340,9 +340,7 @@ npm run build
 - [ ] Automatic mod updates
 - [ ] Integration with Nexus Mods API
 - [ ] Mod conflict detection
-- [ ] Load order management
-- [ ] Cloud profile sync
-- [ ] Mod recommendations
+- [ ] Modpacks
 - [ ] One-click mod installation from links
 - [ ] Mod rating system
 
@@ -365,10 +363,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/cyberpunk-mod-manager/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/cyberpunk-mod-manager/discussions)
-- **Discord**: [Join our server](https://discord.gg/yourserver)
-
+- **Issues**: [GitHub Issues](https://github.com/TheCuteFatCat/Cyberpunk-2077-Modmanager/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/TheCuteFatCat/Cyberpunk-2077-Modmanager/discussions)
+- **Discord**: [Join our server](https://discord.gg/yourserver) (coming soon)
+ 
 ---
 
 <div align="center">
