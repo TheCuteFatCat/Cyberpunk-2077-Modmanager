@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk 2077 Mod Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Custom Titlebar -->
+  <div class="titlebar">
+    <div class="titlebar-drag">
+      <div class="titlebar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+        </svg>
+      </div>
+      <span class="titlebar-title">CYBERPUNK 2077 MOD MANAGER</span>
+    </div>
+    <div class="titlebar-controls">
+      <button class="titlebar-button" id="minimize-btn">
+        <svg viewBox="0 0 12 12"><path d="M0 6h12" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+      <button class="titlebar-button" id="maximize-btn">
+        <svg viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+      </button>
+      <button class="titlebar-button close" id="close-btn">
+        <svg viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">PROFILE</h3>
+        <div class="profile-selector">
+          <select id="profile-select" class="cyber-select">
+            <option value="default">Default</option>
+          </select>
+          <button class="icon-btn" id="add-profile-btn" title="New Profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="profile-actions">
+          <button class="btn-small" id="export-profile-btn">Export</button>
+          <button class="btn-small" id="import-profile-btn">Import</button>
+          <button class="btn-small danger" id="delete-profile-btn">Delete</button>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">NAVIGATION</h3>
+        <nav class="nav-menu">
+          <button class="nav-item active" data-page="mods">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <span>Mods</span>
+          </button>
+          <button class="nav-item" data-page="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 6v6M23 12h-6m-6 0H5"/>
+            </svg>
+            <span>Settings</span>
+          </button>
+          <button class="nav-item" data-page="logs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span>Logs</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar-section stats">
+        <button class="btn-launch-game" id="launch-game-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span>LAUNCH GAME</span>
+        </button>
+        
+        <h3 class="sidebar-title">STATISTICS</h3>
+        <div class="stat-item">
+          <span class="stat-label">Total Mods:</span>
+          <span class="stat-value" id="total-mods">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Active:</span>
+          <span class="stat-value accent" id="active-mods">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Inactive:</span>
+          <span class="stat-value" id="inactive-mods">0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Mods Page -->
+      <div class="page active" id="mods-page">
+        <div class="page-header">
+          <h2 class="page-title">MOD LIBRARY</h2>
+          <div class="page-actions">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
+              </svg>
+              <input type="text" id="search-input" placeholder="Search mods...">
+            </div>
+            <select id="category-filter" class="cyber-select" style="width: 180px;">
+              <option value="">All Categories</option>
+            </select>
+            <button class="btn-secondary" id="enable-all-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Enable All
+            </button>
+            <button class="btn-secondary" id="disable-all-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+              Disable All
+            </button>
+            <button class="btn-primary" id="scan-mods-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+              </svg>
+              Scan Mods
+            </button>
+          </div>
+        </div>
+
+        <div class="content-wrapper">
+          <div class="mod-list" id="mod-list">
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+              <h3>No Mods Found</h3>
+              <p>Set your game path in Settings and scan for mods</p>
+            </div>
+          </div>
+
+          <div class="mod-details" id="mod-details">
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+              </svg>
+              <h3>Select a Mod</h3>
+              <p>Click on a mod to view details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div class="page" id="settings-page">
+        <div class="page-header">
+          <h2 class="page-title">SETTINGS</h2>
+        </div>
+
+        <div class="settings-content">
+          <div class="settings-section">
+            <h3 class="settings-title">Game Configuration</h3>
+            <div class="setting-item">
+              <label class="setting-label">Game Path</label>
+              <div class="path-selector">
+                <input type="text" id="game-path-input" class="cyber-input" readonly placeholder="Not set">
+                <button class="btn-secondary" id="browse-game-path">Browse</button>
+                <button class="btn-secondary" id="open-game-path" title="Open Folder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="setting-description">Main Cyberpunk 2077 installation folder</p>
+            </div>
+            <div class="setting-item">
+              <label class="setting-label">Mod Source Path</label>
+              <div class="path-selector">
+                <input type="text" id="mod-source-path-input" class="cyber-input" readonly placeholder="Not set">
+                <button class="btn-secondary" id="browse-mod-source-path">Browse</button>
+                <button class="btn-secondary" id="open-mod-source-path" title="Open Folder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="setting-description">Folder where your downloaded mods are stored (will be copied to game folder when enabled)</p>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3 class="settings-title">Preferences</h3>
+            <div class="setting-item">
+              <label class="setting-label">
+                <input type="checkbox" id="auto-backup-checkbox" class="cyber-checkbox">
+                <span>Automatic Backup</span>
+              </label>
+              <p class="setting-description">Automatically backup mod configurations</p>
+            </div>
+            <div class="setting-item">
+              <label class="setting-label">
+                <input type="checkbox" id="notifications-checkbox" class="cyber-checkbox">
+                <span>Show Notifications</span>
+              </label>
+              <p class="setting-description">Display notifications for mod actions</p>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3 class="settings-title">About</h3>
+            <div class="about-info">
+              <p><strong>Version:</strong> 1.0.0</p>
+              <p><strong>Built with:</strong> Electron & JavaScript</p>
+              <p><strong>For:</strong> Cyberpunk 2077</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logs Page -->
+      <div class="page" id="logs-page">
+        <div class="page-header">
+          <h2 class="page-title">ACTIVITY LOGS</h2>
+          <button class="btn-secondary" id="clear-logs-btn">Clear Logs</button>
+        </div>
+
+        <div class="logs-content">
+          <div class="log-terminal" id="log-terminal">
+            <div class="log-entry info">
+              <span class="log-time">[00:00:00]</span>
+              <span class="log-message">Mod Manager initialized</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for New Profile -->
+  <div class="modal" id="profile-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Profile</h3>
+        <button class="modal-close" id="close-profile-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <label class="setting-label">Profile Name</label>
+        <input type="text" id="profile-name-input" class="cyber-input" placeholder="Enter profile name">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancel-profile-btn">Cancel</button>
+        <button class="btn-primary" id="create-profile-btn">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirm-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="confirm-title">Confirm Action</h3>
+        <button class="modal-close" id="close-confirm-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message" style="color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancel-confirm-btn">Cancel</button>
+        <button class="btn-primary" id="accept-confirm-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Viewer Modal -->
+  <div class="modal" id="image-viewer-modal">
+    <div class="image-viewer-content">
+      <button class="image-viewer-close" id="close-image-viewer">×</button>
+      <button class="image-viewer-nav prev" id="image-viewer-prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <img id="image-viewer-img" src="" alt="Mod Screenshot">
+      <button class="image-viewer-nav next" id="image-viewer-next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div class="image-viewer-info">
+        <span id="image-viewer-counter">1 / 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Code Viewer Modal -->
+  <div class="modal" id="code-viewer-modal">
+    <div class="code-viewer-content">
+      <div class="code-viewer-header">
+        <h3>Item Codes</h3>
+        <button class="code-viewer-close" id="close-code-viewer">×</button>
+      </div>
+      <div class="code-viewer-body">
+        <div id="code-categories"></div>
+        <div id="code-items"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
