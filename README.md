@@ -159,6 +159,16 @@ YourMod/
 
 The `modinfo.ini` file defines your mod's metadata and installation codes. Create it manually or use the **modinfo.ini Maker** tool for a streamlined workflow.
 
+> ⚠️ **Compatibility Notice**: Most existing mods do not yet include a `modinfo.ini` file and are not fully compatible with the Mod Manager's features. The manager will still **detect and display** these mods, and **enable/disable functionality works normally**, but information such as descriptions, author links, screenshots, and item codes will be missing until mod creators add the `modinfo.ini` file to their releases.
+
+<div align="center">
+
+[![Community modinfo.ini Collection](https://img.shields.io/badge/Community-modinfo.ini%20Collection-00f0ff?style=for-the-badge)](https://pastebin.com/YOUR_PASTEBIN_LINK_HERE)
+
+*Community-created modinfo.ini files for popular mods - Copy and paste into your mod folders*
+
+</div>
+
 #### 🛠️ Using the modinfo.ini Maker (Recommended)
 
 For easier creation and editing of modinfo.ini files, use the dedicated **modinfo.ini Maker** tool:
