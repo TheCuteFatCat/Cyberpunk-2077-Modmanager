@@ -36,7 +36,7 @@
 ### 🛠️ Advanced Features
 - **Item Code Viewer** - Browse and copy in-game item codes directly
 - **Vehicle Spawning Codes** - Quick access to vehicle spawn commands
-- **Nexus Mods Integration** - Direct links to mod pages
+- **Nexus Mods Integration** - Direct links to mod pages and Author Profiles
 - **Activity Logs** - Track all mod operations
 - **Backup System** - Automatic configuration backups
 
@@ -64,8 +64,8 @@
 ### Build from Source
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/cyberpunk-mod-manager.git
-cd cyberpunk-mod-manager
+git clone https://github.com/TheCuteFatCat/cyberpunk-mod-manager.git
+cd cyberpunk-mod-manager/Source Code
 
 # Install dependencies
 npm install
