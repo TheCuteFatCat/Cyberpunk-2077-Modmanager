@@ -257,9 +257,6 @@ codes=Game.AddToInventory("Items.Weapon_Example",1)Game.AddToInventory("Items.We
 ### Code Viewer
 ![Code Viewer](screenshots/codes.png)
 
-### Profile Management
-![Profiles](screenshots/profiles.png)
-
 </div>
 
 ---
