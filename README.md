@@ -39,14 +39,12 @@ A large portion of the code was generated or heavily assisted by AI. Expect bugs
 
 ### 🎨 Modern Interface
 - **Cyberpunk-Themed UI** - Sleek neon design inspired by Night City
-- **Dark Mode** - Easy on the eyes during long gaming sessions
 - **Responsive Design** - Smooth animations and intuitive navigation
-- **Screenshot Viewer** - Preview mod screenshots before enabling
+- **Screenshot Viewer** - Preview mod screenshots
 - **Category Filtering** - Organize mods by category
 
 ### 🛠️ Advanced Features
-- **Item Code Viewer** - Browse and copy in-game item codes directly
-- **Vehicle Spawning Codes** - Quick access to vehicle spawn commands
+- **Item and Vehicle Code Viewer** - Browse and copy in-game CET item codes directly
 - **Nexus Mods Integration** - Direct links to mod pages and Author Profiles
 - **Activity Logs** - Track all mod operations
 - **Backup System** - Automatic configuration backups
