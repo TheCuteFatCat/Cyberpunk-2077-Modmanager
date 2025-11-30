@@ -22,7 +22,7 @@ A large portion of the code was generated or heavily assisted by AI. Expect bugs
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Screenshots](#-screenshots) • [Contributing](#-contributing)
 
-![Main Interface](screenshots/main.png)
+![Main Interface](screenshots/header.png)
 
 ---
 
