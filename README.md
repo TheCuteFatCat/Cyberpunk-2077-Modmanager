@@ -182,7 +182,7 @@ The `modinfo.ini` file defines your mod's metadata and installation codes. Creat
 
 For easier creation and editing of modinfo.ini files, use the dedicated **modinfo.ini Maker** tool:
 
-**[Download modinfo.ini Maker](LINK_TO_GITHUB_RELEASE_HERE)** *(Coming Soon)*
+**[Download modinfo.ini Maker](https://github.com/TheCuteFatCat/INIMAKER)**
 
 **Features:**
 - Visual form-based interface with live preview
